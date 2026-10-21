@@ -632,8 +632,9 @@ svg {
 }
 
 .readiness-tracker-box {
-  background: var(--yellow-soft);
-  border: 1px solid rgba(242, 201, 76, 0.32);
+  background: var(--green-subtle);
+  border: 1px solid var(--line-strong);
+  border-left: 4px solid var(--yellow);
   border-radius: var(--radius-lg);
   padding: 22px;
 }
@@ -647,6 +648,18 @@ svg {
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--ink);
+}
+.readiness-dossier-badge {
+  padding: 6px 10px;
+  border: 1px solid rgba(242, 201, 76, 0.48);
+  border-radius: var(--radius-pill);
+  background: var(--yellow-soft);
+  color: var(--ink) !important;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  white-space: nowrap;
 }
 .readiness-steps-stack {
   list-style: none;
@@ -662,11 +675,18 @@ svg {
   border-top: 1px solid var(--line);
   font-size: 12px;
   font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink-secondary);
 }
 .readiness-steps-stack li svg {
-  width: 14px;
-  height: 14px;
-  color: var(--green);
+  padding: 2px;
+  border: 1px solid rgba(18, 61, 43, 0.12);
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--ink);
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
 }
 
 /* ── Marquee Ribbon (Infinite Dual-Track Stream) ── */
@@ -3011,14 +3031,17 @@ select {
   color: var(--ink-secondary);
 }
 [data-theme='dark'] .readiness-tracker-box {
-  background: var(--yellow-soft);
-  border-color: rgba(242, 201, 76, 0.32);
+  background: #102e24;
+  border-color: var(--line-strong);
+  border-left-color: var(--yellow);
 }
 [data-theme='dark'] .readiness-steps-stack li {
-  border-top-color: rgba(242, 201, 76, 0.2);
+  border-top-color: var(--line);
 }
 [data-theme='dark'] .readiness-steps-stack li svg {
   color: var(--green);
+  background: rgba(185, 217, 173, 0.12);
+  border-color: rgba(185, 217, 173, 0.24);
 }
 [data-theme='dark'] .marquee-ribbon {
   background: #0d2a20;
@@ -3322,13 +3345,7 @@ textarea:focus-visible,
   line-height: 1.45;
 }
 .readiness-tracker-header strong {
-  padding: 5px 9px;
-  border-radius: var(--radius-pill);
-  background: rgba(185, 217, 173, 0.18);
-  font-size: 9px;
-  letter-spacing: 0.06em;
-  white-space: nowrap;
-  color: var(--ink) !important;
+  font-weight: 800;
 }
 .readiness-steps-stack li {
   min-height: 36px;
@@ -3337,12 +3354,6 @@ textarea:focus-visible,
 }
 .readiness-steps-stack li svg {
   flex: 0 0 18px;
-  height: 18px;
-  width: 18px;
-  padding: 3px;
-  border-radius: 50%;
-  background: var(--green-soft);
-  color: var(--ink);
 }
 
 .destination-carousel-toolbar {
@@ -3430,12 +3441,14 @@ textarea:focus-visible,
   border-color: var(--yellow);
 }
 [data-theme='dark'] .readiness-tracker-header strong {
-  background: rgba(185, 217, 173, 0.14);
-  color: var(--green) !important;
+  background: var(--yellow-soft);
+  border-color: rgba(242, 201, 76, 0.32);
+  color: var(--yellow) !important;
 }
 [data-theme='dark'] .readiness-steps-stack li svg {
   color: var(--green);
-  background: rgba(185, 217, 173, 0.14);
+  background: rgba(185, 217, 173, 0.12);
+  border-color: rgba(185, 217, 173, 0.24);
 }
 [data-theme='dark'] .circle-destination-node {
   background: linear-gradient(155deg, #103426 0%, #0b251c 100%);

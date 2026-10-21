@@ -949,7 +949,7 @@ export default function App() {
           <div className="readiness-tracker-box">
             <div className="readiness-tracker-header">
               <span>APPLICATION READINESS SCORE</span>
-              <strong style={{ color: "var(--green)" }}>
+              <strong className="readiness-dossier-badge">
                 FULL DOSSIER BACKING
               </strong>
             </div>
@@ -1281,9 +1281,11 @@ export default function App() {
             role="tabpanel"
           >
             <div className="path-result-topline">
-              <span>YOUR RECOMMENDED PATH</span>
               <span>
-                {activePath.eyebrow} · {activePath.timeline}
+                YOUR RECOMMENDED PATH · {activePath.eyebrow}
+              </span>
+              <span>
+                {activePath.label} ({activePath.timeline})
               </span>
             </div>
 
