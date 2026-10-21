@@ -51,10 +51,10 @@
   --font-display: 'Lexend', -apple-system, sans-serif;
   --font-body: 'Outfit', -apple-system, sans-serif;
 
-  /* Spacing: Ultra Spacious */
-  --section-y: clamp(76px, 7vw, 108px);
-  --section-y-tight: clamp(56px, 5.2vw, 84px);
-  --gutter: clamp(24px, 6vw, 100px);
+  /* Responsive spacing: compact editorial rhythm with room to breathe */
+  --section-y: clamp(58px, 5vw, 76px);
+  --section-y-tight: clamp(42px, 3.8vw, 62px);
+  --gutter: clamp(22px, 5vw, 88px);
   --max-w: 1440px;
 
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
@@ -115,7 +115,7 @@ html {
   scroll-padding-top: 96px;
 }
 body {
-  min-width: 320px;
+  min-width: 280px;
   background-color: var(--paper);
   color: var(--ink);
   overflow-x: hidden;
@@ -1454,6 +1454,9 @@ svg {
   grid-template-columns: 0.85fr 1.15fr;
   min-height: 580px;
   border: 1px solid var(--line);
+}
+.course-feature-billboard > * {
+  min-width: 0;
 }
 .course-yellow-art {
   padding: clamp(32px, 4vw, 64px);
@@ -3596,4 +3599,475 @@ textarea:focus-visible,
 [data-theme='dark'] textarea:focus-visible,
 [data-theme='dark'] [tabindex='0']:focus-visible {
   outline-color: var(--yellow);
+}
+
+/* Responsive fit: keep the same hierarchy while reducing oversized gaps. */
+@media (min-width: 1600px) {
+  :root {
+    --max-w: min(1800px, 82vw);
+    --gutter: clamp(64px, 4vw, 104px);
+  }
+}
+
+@media (min-width: 1081px) {
+  .hero-stage {
+    min-height: min(820px, max(680px, calc(100svh - 180px)));
+    padding-top: clamp(42px, 4.2vw, 64px);
+    padding-bottom: clamp(42px, 4.2vw, 64px);
+    gap: clamp(36px, 4vw, 64px);
+  }
+
+  .hero-copy-wrap h1 {
+    font-size: clamp(40px, 3.5vw, 52px);
+    margin-block: 18px;
+  }
+
+  .hero-copy-wrap > p {
+    margin-bottom: 28px;
+  }
+
+  .hero-feature-trio {
+    margin-top: 36px;
+    padding-top: 26px;
+    gap: 12px;
+  }
+
+  .hero-visual-panel {
+    padding: clamp(24px, 2.4vw, 34px);
+    gap: 20px;
+  }
+
+  .stat-quad-card {
+    padding: 16px;
+  }
+
+  .readiness-tracker-box {
+    padding: 18px;
+  }
+
+  .destinations-orbit-header h2,
+  .pathfinder-head h2,
+  .programs-head-grid h2,
+  .courses-head-grid h2,
+  .packages-head-row h2,
+  .community-intro h2,
+  .blogs-head-bar h2,
+  .process-content-layout h2,
+  .faq-title-col h2,
+  .contact-sidebar h2 {
+    font-size: clamp(30px, 3.45vw, 50px);
+  }
+
+  .final-cta-billboard h2 {
+    font-size: clamp(34px, 4vw, 58px);
+  }
+
+  .program-giant-code {
+    font-size: clamp(44px, 5.2vw, 74px);
+  }
+
+  .program-copy-column h3 {
+    font-size: clamp(22px, 2.2vw, 32px);
+  }
+
+  .program-color-row {
+    min-height: 190px;
+    padding: 28px clamp(18px, 2vw, 28px);
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.025);
+    transition: transform 220ms ease, background-color 220ms ease, color 220ms ease;
+  }
+
+  .program-color-row:last-child {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .program-color-row:hover {
+    padding-inline: clamp(18px, 2vw, 28px);
+    transform: translateY(-2px);
+  }
+
+  .course-feature-billboard {
+    min-height: 500px;
+  }
+
+  .course-yellow-art > strong {
+    font-size: clamp(52px, 5.7vw, 92px);
+  }
+
+  .course-info-panel > h3 {
+    font-size: clamp(26px, 2.8vw, 40px);
+  }
+
+  .packages-head-row,
+  .programs-head-grid,
+  .courses-head-grid {
+    margin-bottom: 40px;
+  }
+
+  .pathfinder-deck {
+    margin-top: 38px;
+  }
+
+  .process-content-layout {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1080px) {
+  :root {
+    --section-y: 54px;
+    --section-y-tight: 40px;
+    --gutter: clamp(24px, 5vw, 52px);
+  }
+
+  .hero-stage {
+    min-height: 0;
+    padding-top: 48px;
+    padding-bottom: 50px;
+    gap: 40px;
+  }
+
+  .hero-feature-trio {
+    margin-top: 36px;
+    padding-top: 26px;
+  }
+
+  .programs-head-grid,
+  .courses-head-grid {
+    gap: 28px;
+    margin-bottom: 36px;
+  }
+
+  .program-color-row {
+    min-height: 190px;
+    gap: 22px;
+  }
+
+  .pathfinder-deck {
+    margin-top: 36px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .scroll-top-btn {
+    display: none;
+  }
+
+  .program-color-row {
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .program-color-row:last-child {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
+
+@media (max-width: 900px) {
+  .programs-head-grid,
+  .courses-head-grid,
+  .blogs-head-bar {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .programs-head-grid p,
+  .courses-head-grid p {
+    max-width: 680px;
+  }
+
+  .blogs-head-bar {
+    align-items: start;
+    margin-bottom: 0;
+  }
+
+  .blogs-head-bar h2 {
+    margin-top: 14px;
+  }
+
+  .blogs-head-bar a {
+    justify-self: start;
+  }
+
+  .blogs-cards-deck {
+    margin-top: 28px;
+  }
+
+}
+
+@media (max-width: 720px) {
+  :root {
+    --section-y: 42px;
+    --section-y-tight: 32px;
+    --gutter: clamp(18px, 5vw, 24px);
+  }
+
+  .hero-stage {
+    min-height: 0;
+    padding-top: 42px;
+    padding-bottom: 44px;
+    gap: 32px;
+  }
+
+  .hero-copy-wrap h1 {
+    font-size: clamp(34px, 7.2vw, 48px);
+    margin-block: 16px 18px;
+  }
+
+  .hero-copy-wrap > p {
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .hero-feature-trio {
+    margin-top: 28px;
+    padding-top: 22px;
+    gap: 14px;
+  }
+
+  .hero-visual-panel {
+    padding: 22px;
+    gap: 18px;
+  }
+
+  .stat-quad-card {
+    padding: 15px;
+  }
+
+  .readiness-tracker-box {
+    padding: 16px;
+  }
+
+  .readiness-tracker-header {
+    gap: 8px;
+  }
+
+  .readiness-dossier-badge {
+    white-space: normal;
+  }
+
+  .destinations-section {
+    padding-top: 46px;
+    padding-bottom: 50px;
+  }
+
+  .destinations-orbit-header h2,
+  .pathfinder-head h2,
+  .programs-head-grid h2,
+  .courses-head-grid h2,
+  .packages-head-row h2,
+  .community-intro h2,
+  .blogs-head-bar h2,
+  .process-content-layout h2,
+  .faq-title-col h2,
+  .contact-sidebar h2 {
+    font-size: clamp(28px, 8vw, 36px);
+    line-height: 1.04;
+  }
+
+  .final-cta-billboard h2 {
+    font-size: clamp(30px, 8.8vw, 42px);
+    line-height: 1.03;
+  }
+
+  .programs-head-grid,
+  .courses-head-grid {
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .programs-head-grid p,
+  .courses-head-grid p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .program-color-row {
+    min-height: 0;
+    padding: 22px 16px;
+    gap: 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .program-giant-code {
+    font-size: clamp(46px, 13vw, 64px);
+  }
+
+  .program-copy-column h3 {
+    font-size: clamp(22px, 6vw, 28px);
+    line-height: 1.1;
+  }
+
+  .program-copy-column p {
+    font-size: 13px;
+  }
+
+  .course-feature-billboard {
+    min-height: 0;
+  }
+
+  .course-yellow-art {
+    min-height: 230px;
+    padding: 24px;
+  }
+
+  .course-yellow-art > strong {
+    font-size: clamp(48px, 13vw, 68px);
+    line-height: 0.86;
+  }
+
+  .course-info-panel {
+    padding: 24px;
+  }
+
+  .course-info-panel > h3 {
+    font-size: clamp(26px, 7vw, 32px);
+    line-height: 1.08;
+  }
+
+  .package-selector-tabs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .package-tab-choice {
+    min-height: 62px;
+    grid-template-columns: 28px minmax(0, 1fr) 18px;
+    gap: 10px;
+    padding-inline: 18px;
+  }
+
+  .package-tab-choice strong {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .pathfinder-deck {
+    margin-top: 28px;
+  }
+
+  .pathfinder-detail-view,
+  .package-viewer-panel {
+    padding: 24px;
+  }
+
+  .pathfinder-detail-view h3 {
+    font-size: clamp(26px, 7vw, 32px);
+    margin: 22px 0 12px;
+  }
+
+  .path-points-chips {
+    margin: 20px 0 26px;
+  }
+
+  .packages-head-row {
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .process-content-layout {
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .process-single-step {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 8px 12px;
+    padding: 19px 0;
+  }
+
+  .process-single-step span {
+    grid-row: 1 / span 2;
+    padding-top: 3px;
+  }
+
+  .process-single-step h3,
+  .process-single-step p {
+    grid-column: 2;
+  }
+
+  .process-single-step h3 {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .process-single-step p {
+    font-size: 13px;
+  }
+
+  .scroll-top-btn {
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --gutter: 16px;
+  }
+
+  .hero-visual-panel {
+    padding: 18px;
+  }
+
+  .stat-quad-card {
+    padding: 12px;
+  }
+
+  .stat-quad-num {
+    font-size: 25px;
+  }
+
+  .readiness-tracker-box {
+    padding: 14px;
+  }
+
+  .pathfinder-detail-view,
+  .package-viewer-panel,
+  .course-info-panel {
+    padding: 20px;
+  }
+
+  .course-facts-bar {
+    grid-template-columns: minmax(0, 1fr);
+    margin-block: 20px;
+  }
+
+  .course-fact-col {
+    padding: 12px 0;
+  }
+
+  .course-fact-col + .course-fact-col {
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .theme-round-toggle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mobile-menu-burger {
+    width: 40px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 320px) {
+  :root {
+    --gutter: 14px;
+  }
+
+  .hero-copy-wrap h1 {
+    font-size: 32px;
+  }
 }

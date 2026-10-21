@@ -628,7 +628,7 @@ export default function App() {
   })
 
   const [menuOpen, setMenuOpen] = useState(false)
-  const [activePathKey, setActivePathKey] = useState<PathKey>("scholarship")
+  const [activePathKey, setActivePathKey] = useState<PathKey>("sat")
   const [activePackageIndex, setActivePackageIndex] = useState(2)
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
   const [scrollProgress, setScrollProgress] = useState(0)
