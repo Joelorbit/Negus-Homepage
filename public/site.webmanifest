@@ -1,0 +1,15 @@
+{
+  "name": "Negus Consultants",
+  "short_name": "Negus",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#082F2C",
+  "background_color": "#F8F7F1",
+  "display": "standalone"
+}
