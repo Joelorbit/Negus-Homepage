@@ -3,13 +3,11 @@ import {
   ArrowUp,
   ArrowUpRight,
   Award,
-  Book,
   Check,
   Compass,
   FileText,
   GraduationCap,
   Instagram,
-  Laptop,
   Mail,
   Moon,
   Phone,
@@ -575,12 +573,7 @@ function RotatingUniversitySeal({
         </defs>
 
         {/* Outer Orbit Rim */}
-        <circle
-          cx="80"
-          cy="80"
-          r="74"
-          className="seal-rim-outer"
-        />
+        <circle cx="80" cy="80" r="74" className="seal-rim-outer" />
 
         {/* Orbit Inner Dashed Track */}
         <circle cx="80" cy="80" r="69" className="seal-rim-dashed" />
@@ -595,12 +588,7 @@ function RotatingUniversitySeal({
         </g>
 
         {/* Inner Solid Circular Backdrop */}
-        <circle
-          cx="80"
-          cy="80"
-          r="44"
-          className="seal-inner-halo"
-        />
+        <circle cx="80" cy="80" r="44" className="seal-inner-halo" />
         <circle cx="80" cy="80" r="40" className="seal-center-disc" />
       </svg>
 
@@ -631,7 +619,6 @@ export default function App() {
   const [activePathKey, setActivePathKey] = useState<PathKey>("sat")
   const [activePackageIndex, setActivePackageIndex] = useState(2)
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
-  const [scrollProgress, setScrollProgress] = useState(0)
   const [activeSection, setActiveSection] = useState("home")
   const [showScrollTop, setShowScrollTop] = useState(false)
 
@@ -655,7 +642,9 @@ export default function App() {
     const carousel = destinationCarouselRef.current
     if (!carousel) return
     const maxScroll = carousel.scrollWidth - carousel.clientWidth
-    setDestinationScrollProgress(maxScroll > 0 ? carousel.scrollLeft / maxScroll : 1)
+    setDestinationScrollProgress(
+      maxScroll > 0 ? carousel.scrollLeft / maxScroll : 1,
+    )
   }, [destinationFilter])
 
   /* 3-Step Interactive Path Builder Modal */
@@ -683,9 +672,6 @@ export default function App() {
     const handleScroll = () => {
       const y = window.scrollY
       setShowScrollTop(y > 500)
-
-      const total = document.documentElement.scrollHeight - window.innerHeight
-      setScrollProgress(total > 0 ? y / total : 0)
 
       const sectionIds = [
         "home",
@@ -716,12 +702,13 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (!plannerOpen && !selectedLetter) return
+    if (!plannerOpen && !selectedLetter && !menuOpen) return
     const prev = document.body.style.overflow
     const closeOnEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setPlannerOpen(false)
         setSelectedLetter(null)
+        setMenuOpen(false)
       }
     }
     document.body.style.overflow = "hidden"
@@ -730,129 +717,112 @@ export default function App() {
       document.body.style.overflow = prev
       window.removeEventListener("keydown", closeOnEscape)
     }
-  }, [plannerOpen, selectedLetter])
+  }, [plannerOpen, selectedLetter, menuOpen])
 
   return (
     <main>
       {/* ── Film Grain Texture Overlay ── */}
       <div className="film-grain" aria-hidden="true" />
 
-      {/* ── Reading Progress Bar ── */}
-      <div className="reading-progress-track" aria-hidden="true">
-        <div
-          className="reading-progress-fill"
-          style={{ transform: `scaleX(${scrollProgress})` }}
-        />
-      </div>
-
-      {/* ── Announcement Top Bar ── */}
-      <aside className="announcement-bar">
-        <p>
-          Applications are built one strong step at a time. 20+ years of
-          debt-free admissions.
-        </p>
-        <a href="#pathfinder">
-          Find your next step <ArrowRight aria-hidden="true" />
-        </a>
-      </aside>
-
       {/* ── Sticky Site Header ── */}
       <header className="site-header">
-        <a
-          className="brand-anchor"
-          href="#home"
-          onClick={() => setMenuOpen(false)}
-          aria-label="Negus Consultants home"
-        >
-          <img
-            src={theme === "dark" ? "/negus-logo-light.svg" : "/negus-logo.svg"}
-            alt="Negus Consultants Official Logo"
-            className="official-brand-logo"
-          />
-        </a>
-
-        <nav className={`header-nav-links ${menuOpen ? "open" : ""}`}>
-          <a href="#destinations" onClick={() => setMenuOpen(false)}>
-            Admissions
-          </a>
-          <a href="#pathfinder" onClick={() => setMenuOpen(false)}>
-            Path Finder
-          </a>
-          <a href="#programs" onClick={() => setMenuOpen(false)}>
-            Programs
-          </a>
-          <a href="#courses" onClick={() => setMenuOpen(false)}>
-            Courses
-          </a>
-          <a href="#packages" onClick={() => setMenuOpen(false)}>
-            Packages
-          </a>
-          <a href="#community" onClick={() => setMenuOpen(false)}>
-            Community
-          </a>
-          <a href="#blogs" onClick={() => setMenuOpen(false)}>
-            Blogs
-          </a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </a>
-        </nav>
-
-        <div className="header-right-actions">
-          <button
-            type="button"
-            className="theme-round-toggle"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-          >
-            {theme === "dark" ? (
-              <Sun aria-hidden="true" />
-            ) : (
-              <Moon aria-hidden="true" />
-            )}
-          </button>
-
+        <div className="site-header-inner">
           <a
-            className="header-action-btn"
-            href="#contact"
-            aria-label="Talk to an Advisor"
+            className="brand-anchor"
+            href="#home"
             onClick={() => setMenuOpen(false)}
+            aria-label="Negus Consultants home"
           >
-            <span>Talk to an Advisor</span>
-            <ArrowRight aria-hidden="true" />
+            <img
+              src={
+                theme === "dark" ? "/negus-logo-light.svg" : "/negus-logo.svg"
+              }
+              alt="Negus Consultants Official Logo"
+              className="official-brand-logo"
+            />
           </a>
 
-          <button
-            type="button"
-            className="mobile-menu-burger"
-            aria-label="Toggle navigation menu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((o) => !o)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+          <nav className={`header-nav-links ${menuOpen ? "open" : ""}`}>
+            <a href="#destinations" onClick={() => setMenuOpen(false)}>
+              Admissions
+            </a>
+            <a href="#pathfinder" onClick={() => setMenuOpen(false)}>
+              Path Finder
+            </a>
+            <a href="#programs" onClick={() => setMenuOpen(false)}>
+              Programs
+            </a>
+            <a href="#courses" onClick={() => setMenuOpen(false)}>
+              Courses
+            </a>
+            <a href="#packages" onClick={() => setMenuOpen(false)}>
+              Packages
+            </a>
+            <a href="#community" onClick={() => setMenuOpen(false)}>
+              Community
+            </a>
+            <a href="#blogs" onClick={() => setMenuOpen(false)}>
+              Blogs
+            </a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </a>
+          </nav>
+
+          <div className="header-right-actions">
+            <button
+              type="button"
+              className="theme-round-toggle"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${
+                theme === "dark" ? "light" : "dark"
+              } mode`}
+            >
+              {theme === "dark" ? (
+                <Sun aria-hidden="true" />
+              ) : (
+                <Moon aria-hidden="true" />
+              )}
+            </button>
+
+            <a
+              className="header-action-btn"
+              href="#contact"
+              aria-label="Talk to an Advisor"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span>Talk to an Advisor</span>
+              <ArrowRight aria-hidden="true" />
+            </a>
+
+            <button
+              type="button"
+              className={`mobile-menu-burger ${menuOpen ? "open" : ""}`}
+              aria-label="Toggle navigation menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((o) => !o)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* ── Hero Section (Ultra Spacious · NO stock photo in middle) ── */}
+      {/* ── Hero Section ── */}
       <section className="hero-stage section-shell" id="home">
         <div className="hero-copy-wrap">
-          <div className="eyebrow-tag">
-            SCHOLARSHIP PREPARATION · ETHIOPIA · 20+ YEARS
-          </div>
+          <div className="eyebrow-tag">WELCOME TO NEGUS CONSULTANCY</div>
           <h1 className="display-title">
-            Built for Ambition.
+            Study abroad.
             <br />
-            <mark>Proven by Admissions.</mark>
+            <mark>With a plan built for you.</mark>
           </h1>
           <p>
-            Join thousands of ambitious Ethiopian scholars who turned
-            uncertainty into fully funded acceptance letters at New York
-            University, Georgetown, Drexel, Howard, and Williams College. Two
-            decades of precision mentorship, authentic personal narrative
-            coaching, and debt-free international education.
+            SAT and IELTS prep, university applications, essay coaching,
+            scholarships, financial aid, and visa guidance—one expert team,
+            one clear plan.
           </p>
 
           <div className="hero-button-row">
@@ -861,7 +831,7 @@ export default function App() {
               className="btn-dark-hero"
               onClick={() => openPlanner("scholarship")}
             >
-              <span>Find My Learning Path</span>
+              <span>Build My Plan</span>
               <ArrowRight aria-hidden="true" />
             </button>
 
@@ -869,108 +839,6 @@ export default function App() {
               <span>See Our Packages</span>
               <ArrowRight aria-hidden="true" />
             </a>
-          </div>
-
-          <div className="hero-feature-trio">
-            <div className="feature-trio-item">
-              <div className="feature-trio-icon">
-                <Laptop aria-hidden="true" />
-              </div>
-              <div>
-                <strong>Step-by-Step Prep</strong>
-                <span style={{ fontSize: "11px", color: "var(--ink-muted)" }}>
-                  SAT, IELTS & Common App
-                </span>
-              </div>
-            </div>
-            <div className="feature-trio-item">
-              <div className="feature-trio-icon">
-                <GraduationCap aria-hidden="true" />
-              </div>
-              <div>
-                <strong>Expert Mentoring</strong>
-                <span style={{ fontSize: "11px", color: "var(--ink-muted)" }}>
-                  Senior Admissions Advisors
-                </span>
-              </div>
-            </div>
-            <div className="feature-trio-item">
-              <div className="feature-trio-icon">
-                <Book aria-hidden="true" />
-              </div>
-              <div>
-                <strong>Essay Coaching</strong>
-                <span style={{ fontSize: "11px", color: "var(--ink-muted)" }}>
-                  Authentic Personal Stories
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: Architectural Visual Panel (Pure Visual Engineering · NO stock photo) */}
-        <div className="hero-visual-panel">
-          <div className="hero-panel-head">
-            <span className="hero-panel-title">ADMISSIONS COMMAND CENTER</span>
-            <span className="hero-panel-status">✦ 100% VERIFIED RECORDS</span>
-          </div>
-
-          <div className="hero-stats-quad">
-            <div className="stat-quad-card">
-              <span className="stat-quad-num">$14.2M</span>
-              <span className="stat-quad-label">Merit Scholarships</span>
-              <span className="stat-quad-desc">
-                Secured for Ethiopian scholars
-              </span>
-            </div>
-            <div className="stat-quad-card">
-              <span className="stat-quad-num">1510</span>
-              <span className="stat-quad-label">Average SAT Score</span>
-              <span className="stat-quad-desc">
-                Math & Digital Reading prep
-              </span>
-            </div>
-            <div className="stat-quad-card">
-              <span className="stat-quad-num">8.0</span>
-              <span className="stat-quad-label">Median IELTS Band</span>
-              <span className="stat-quad-desc">
-                Writing & native mock drills
-              </span>
-            </div>
-            <div className="stat-quad-card">
-              <span className="stat-quad-num">98.4%</span>
-              <span className="stat-quad-label">Match Rate</span>
-              <span className="stat-quad-desc">
-                First-choice university admit
-              </span>
-            </div>
-          </div>
-
-          <div className="readiness-tracker-box">
-            <div className="readiness-tracker-header">
-              <span>APPLICATION READINESS SCORE</span>
-              <strong className="readiness-dossier-badge">
-                FULL DOSSIER BACKING
-              </strong>
-            </div>
-            <ul className="readiness-steps-stack">
-              <li>
-                <span>Common App Personal Narrative</span>
-                <Check aria-hidden="true" />
-              </li>
-              <li>
-                <span>CSS Profile & ISFAA Aid Documentation</span>
-                <Check aria-hidden="true" />
-              </li>
-              <li>
-                <span>Counselor & Teacher Recommendation Strategy</span>
-                <Check aria-hidden="true" />
-              </li>
-              <li>
-                <span>Consulate & Alumni Visa Simulation</span>
-                <Check aria-hidden="true" />
-              </li>
-            </ul>
           </div>
         </div>
       </section>
@@ -1096,7 +964,9 @@ export default function App() {
         <div className="destination-carousel-toolbar">
           <div className="destination-carousel-progress" aria-hidden="true">
             <span
-              style={{ transform: `scaleX(${Math.max(0.08, destinationScrollProgress)})` }}
+              style={{
+                transform: `scaleX(${Math.max(0.08, destinationScrollProgress)})`,
+              }}
             />
           </div>
           <div className="destination-carousel-controls">
@@ -1111,7 +981,11 @@ export default function App() {
                 if (!carousel) return
                 carousel.scrollBy({
                   left: -carousel.clientWidth * 0.78,
-                  behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+                  behavior: window.matchMedia(
+                    "(prefers-reduced-motion: reduce)",
+                  ).matches
+                    ? "auto"
+                    : "smooth",
                 })
               }}
             >
@@ -1127,7 +1001,11 @@ export default function App() {
                 if (!carousel) return
                 carousel.scrollBy({
                   left: carousel.clientWidth * 0.78,
-                  behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+                  behavior: window.matchMedia(
+                    "(prefers-reduced-motion: reduce)",
+                  ).matches
+                    ? "auto"
+                    : "smooth",
                 })
               }}
             >
@@ -1146,7 +1024,9 @@ export default function App() {
           onScroll={(event) => {
             const carousel = event.currentTarget
             const maxScroll = carousel.scrollWidth - carousel.clientWidth
-            setDestinationScrollProgress(maxScroll > 0 ? carousel.scrollLeft / maxScroll : 1)
+            setDestinationScrollProgress(
+              maxScroll > 0 ? carousel.scrollLeft / maxScroll : 1,
+            )
           }}
           aria-label="Accepted universities"
         >
@@ -1163,9 +1043,11 @@ export default function App() {
                 role="group"
                 aria-roledescription="slide"
                 aria-label={`${idx + 1} of ${filteredUniversities.length}: ${uni.name}`}
-                style={{
-                  "--card-index": idx,
-                } as CSSProperties}
+                style={
+                  {
+                    "--card-index": idx,
+                  } as CSSProperties
+                }
               >
                 <div className="circle-node-badge">
                   <span>0{idx + 1}</span>
@@ -1281,9 +1163,7 @@ export default function App() {
             role="tabpanel"
           >
             <div className="path-result-topline">
-              <span>
-                YOUR RECOMMENDED PATH · {activePath.eyebrow}
-              </span>
+              <span>YOUR RECOMMENDED PATH · {activePath.eyebrow}</span>
               <span>
                 {activePath.label} ({activePath.timeline})
               </span>
@@ -1706,35 +1586,24 @@ export default function App() {
               >
                 <span>0{index + 1}</span>
                 <strong>{post.visual}</strong>
-                <small
-                  style={{
-                    alignSelf: "flex-end",
-                    fontSize: "9px",
-                    letterSpacing: "0.12em",
-                    fontWeight: 800,
-                  }}
-                >
+                <small className="blog-visual-stamp">
                   NEGUS
                   <br />
                   JOURNAL
                 </small>
               </div>
 
-              <span
-                style={{
-                  display: "block",
-                  marginTop: "16px",
-                  fontSize: "9px",
-                  fontWeight: 800,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  color: "var(--ink-muted)",
-                }}
-              >
-                TIPS · {post.category}
-              </span>
-              <h4>{post.title}</h4>
-              <p>{post.excerpt}</p>
+              <div className="blog-card-body">
+                <span className="blog-category-tag">
+                  TIPS · {post.category}
+                </span>
+                <h4>{post.title}</h4>
+                <p>{post.excerpt}</p>
+                <div className="blog-card-link">
+                  <span>Read Article</span>
+                  <ArrowUpRight aria-hidden="true" />
+                </div>
+              </div>
             </a>
           ))}
         </div>
@@ -2257,103 +2126,72 @@ export default function App() {
                 <h2 id="planner-title">{activePath.title}</h2>
                 <p>{activePath.body}</p>
 
-                <div
-                  style={{
-                    padding: "20px",
-                    background: "var(--green-soft)",
-                    borderRadius: "var(--radius-sm)",
-                    marginBottom: "24px",
-                  }}
-                >
-                  <strong
-                    style={{
-                      display: "block",
-                      fontFamily: "var(--font-display)",
-                      fontSize: "14px",
-                      color: "#072b26",
-                      marginBottom: "8px",
-                    }}
-                  >
+                <div className="planner-recommendation-card">
+                  <strong className="planner-recommendation-title">
                     {activePath.label} ({activePath.timeline})
                   </strong>
-                  <ul
-                    style={{
-                      listStyle: "none",
-                      padding: 0,
-                      margin: 0,
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: "8px",
-                    }}
-                  >
+                  <ul className="planner-recommendation-list">
                     {activePath.points.map((pt) => (
-                      <li
-                        key={pt}
-                        style={{
-                          padding: "4px 10px",
-                          background: "#ffffff",
-                          borderRadius: "var(--radius-xs)",
-                          fontSize: "12px",
-                          fontWeight: 600,
-                          color: "#072b26",
-                        }}
-                      >
+                      <li key={pt}>
                         ✓ {pt}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <span
-                  style={{
-                    display: "block",
-                    fontFamily: "var(--font-display)",
-                    fontSize: "10px",
-                    fontWeight: 800,
-                    letterSpacing: "0.15em",
-                    color: "var(--ink-muted)",
-                    marginBottom: "10px",
-                  }}
-                >
-                  HOW WOULD YOU PREFER TO LEARN?
-                </span>
+                <div className="planner-format-section">
+                  <div className="planner-format-heading">
+                    <div>
+                      <span>YOUR LEARNING FORMAT</span>
+                      <h3>How would you like to learn?</h3>
+                    </div>
+                    <p>You can change this later.</p>
+                  </div>
 
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(3, 1fr)",
-                    gap: "10px",
-                    marginBottom: "32px",
-                  }}
-                >
-                  {["Online", "In person", "Not sure yet"].map((fmt) => (
-                    <button
-                      type="button"
-                      key={fmt}
-                      onClick={() => setStudyFormat(fmt)}
-                      style={{
-                        padding: "14px 16px",
-                        border:
-                          studyFormat === fmt
-                            ? "2px solid var(--ink)"
-                            : "1.5px solid var(--line)",
-                        borderRadius: "var(--radius-sm)",
-                        background:
-                          studyFormat === fmt
-                            ? "var(--green-soft)"
-                            : "transparent",
-                        fontFamily: "var(--font-display)",
-                        fontSize: "13px",
-                        fontWeight: 700,
-                        textAlign: "center",
-                      }}
-                    >
-                      {fmt}
-                    </button>
-                  ))}
+                  <div
+                    className="planner-format-picker"
+                    role="group"
+                    aria-label="Choose your learning format"
+                  >
+                    {[
+                      { label: "Online", detail: "Learn from wherever you are." },
+                      {
+                        label: "In person",
+                        detail: "Join a cohort in Addis Ababa.",
+                      },
+                      {
+                        label: "Not sure yet",
+                        detail: "We’ll help you find the right fit.",
+                      },
+                    ].map(({ label, detail }) => (
+                      <button
+                        type="button"
+                        key={label}
+                        onClick={() => setStudyFormat(label)}
+                        aria-pressed={studyFormat === label}
+                        className={`planner-format-choice ${
+                          studyFormat === label ? "selected" : ""
+                        }`}
+                      >
+                        <span className="planner-format-choice-topline">
+                          <strong>{label}</strong>
+                          <span
+                            className="planner-format-choice-indicator"
+                            aria-hidden="true"
+                          >
+                            {studyFormat === label ? <Check /> : null}
+                          </span>
+                        </span>
+                        <span className="planner-format-choice-detail">
+                          {detail}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <div
+                  className="planner-step-actions"
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -2386,6 +2224,7 @@ export default function App() {
             {plannerStep === 2 && (
               <div className="planner-body-content">
                 <div
+                  className="planner-step-actions"
                   style={{
                     width: "44px",
                     height: "44px",
