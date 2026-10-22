@@ -2,10 +2,6 @@ import type { SVGProps } from "react"
 
 type LogoProps = SVGProps<SVGSVGElement>
 
-/**
- * Official New York University (NYU) Vector Brand Logo
- * Official Color: NYU Violet (#57068c)
- */
 export function NyuLogo(props: LogoProps) {
   return (
     <svg
@@ -14,9 +10,9 @@ export function NyuLogo(props: LogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/* NYU Torch Graphic */}
+
       <g fill="#57068c">
-        {/* Flame */}
+
         <path d="M28 8C27 13 31 17 31 22C31 27 27 30 25 33C24 30 23 27 23 24C23 18 26 13 28 8Z" />
         <path
           d="M22 14C19 18 18 22 18 26C18 31 21 34 23 37C20 35 18 31 18 27C18 22 20 18 22 14Z"
@@ -26,13 +22,13 @@ export function NyuLogo(props: LogoProps) {
           d="M34 16C36 20 37 24 37 28C37 32 35 36 32 38C34 35 35 32 35 28C35 23 34 19 34 16Z"
           opacity="0.85"
         />
-        {/* Torch Bowl */}
+
         <path d="M14 36H40L37 43H17L14 36Z" />
-        {/* Torch Handle & Base */}
+
         <rect x="25" y="44" width="4" height="16" rx="1" />
         <rect x="22" y="60" width="10" height="3" rx="1" />
       </g>
-      {/* NYU Bold Typography */}
+
       <text
         x="54"
         y="45"
@@ -59,10 +55,6 @@ export function NyuLogo(props: LogoProps) {
   )
 }
 
-/**
- * Official Georgetown University Vector Brand Logo
- * Official Colors: Georgetown Blue (#041e42) & Hilltop Gray (#63666a)
- */
 export function GeorgetownLogo(props: LogoProps) {
   return (
     <svg
@@ -71,7 +63,7 @@ export function GeorgetownLogo(props: LogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/* Georgetown Shield & Crest */}
+
       <g>
         <path
           d="M14 10H38C38 10 39 36 26 48C13 36 14 10 14 10Z"
@@ -81,13 +73,13 @@ export function GeorgetownLogo(props: LogoProps) {
           d="M16 12H36C36 12 37 34 26 45C15 34 16 12 16 12Z"
           fill="#ffffff"
         />
-        {/* Inner Eagle & Cross Device */}
+
         <path d="M26 16L29 24H23L26 16Z" fill="#041e42" />
         <path d="M20 26H32V29H20V26Z" fill="#041e42" />
         <circle cx="26" cy="35" r="4" fill="#041e42" />
         <path d="M24 33L28 37M28 33L24 37" stroke="#ffffff" strokeWidth="1.2" />
       </g>
-      {/* Georgetown Wordmark */}
+
       <text
         x="50"
         y="36"
@@ -114,10 +106,6 @@ export function GeorgetownLogo(props: LogoProps) {
   )
 }
 
-/**
- * Official Drexel University Vector Brand Logo
- * Official Colors: Drexel Blue (#07294d) & Drexel Gold (#ffc600)
- */
 export function DrexelLogo(props: LogoProps) {
   return (
     <svg
@@ -126,11 +114,11 @@ export function DrexelLogo(props: LogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/* Dragon Silhouette / Shield */}
+
       <rect x="8" y="10" width="40" height="48" rx="6" fill="#07294d" />
       <path d="M16 44L28 18L40 44L28 38L16 44Z" fill="#ffc600" />
       <circle cx="28" cy="27" r="3" fill="#07294d" />
-      {/* Drexel Typography */}
+
       <text
         x="58"
         y="38"
@@ -157,10 +145,6 @@ export function DrexelLogo(props: LogoProps) {
   )
 }
 
-/**
- * Official Williams College Vector Brand Logo
- * Official Colors: Williams Purple (#502d79) & Williams Gold (#ffcc00)
- */
 export function WilliamsLogo(props: LogoProps) {
   return (
     <svg
@@ -169,13 +153,13 @@ export function WilliamsLogo(props: LogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/* Williams Block W Crest */}
+
       <rect x="10" y="10" width="42" height="48" rx="4" fill="#502d79" />
       <path
         d="M16 18H22L26 36L31 18H36L41 36L45 18H50L44 46H38L33.5 28L29 46H23L16 18Z"
         fill="#ffcc00"
       />
-      {/* Williams Wordmark */}
+
       <text
         x="62"
         y="37"
@@ -203,10 +187,6 @@ export function WilliamsLogo(props: LogoProps) {
   )
 }
 
-/**
- * Official Sarah Lawrence College Vector Brand Logo
- * Official Color: Sarah Lawrence Green (#004731)
- */
 export function SarahLawrenceLogo(props: LogoProps) {
   return (
     <svg
@@ -215,12 +195,12 @@ export function SarahLawrenceLogo(props: LogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/* SLC Classical Crest */}
+
       <circle cx="26" cy="34" r="20" fill="#004731" />
       <circle cx="26" cy="34" r="17" fill="#ffffff" />
       <path d="M26 19L31 29H21L26 19Z" fill="#004731" />
       <rect x="24.5" y="30" width="3" height="12" fill="#004731" />
-      {/* Sarah Lawrence Typography */}
+
       <text
         x="56"
         y="33"
@@ -248,10 +228,6 @@ export function SarahLawrenceLogo(props: LogoProps) {
   )
 }
 
-/**
- * Official Hult International Business School Logo
- * Official Colors: Obsidian & Gold (#c5a059)
- */
 export function HultLogo(props: LogoProps) {
   return (
     <svg
@@ -260,7 +236,7 @@ export function HultLogo(props: LogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/* Hult Global Ribbon Crest */}
+
       <rect x="10" y="12" width="38" height="46" rx="4" fill="#111827" />
       <path
         d="M19 22V46M39 22V46M19 34H39"
@@ -268,7 +244,7 @@ export function HultLogo(props: LogoProps) {
         strokeWidth="4"
         strokeLinecap="round"
       />
-      {/* Hult Wordmark */}
+
       <text
         x="58"
         y="38"
@@ -295,10 +271,6 @@ export function HultLogo(props: LogoProps) {
   )
 }
 
-/**
- * Official Howard University Vector Brand Logo
- * Official Colors: Howard Navy (#002855) & Crimson (#e03a3e)
- */
 export function HowardLogo(props: LogoProps) {
   return (
     <svg
@@ -307,7 +279,7 @@ export function HowardLogo(props: LogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/* Howard Shield */}
+
       <path d="M12 10H38C38 10 39 34 25 46C11 34 12 10 12 10Z" fill="#002855" />
       <path d="M14 12H36C36 12 37 32 25 43C13 32 14 12 14 12Z" fill="#e03a3e" />
       <text
@@ -321,7 +293,7 @@ export function HowardLogo(props: LogoProps) {
       >
         H
       </text>
-      {/* Howard Wordmark */}
+
       <text
         x="50"
         y="36"
@@ -348,10 +320,6 @@ export function HowardLogo(props: LogoProps) {
   )
 }
 
-/**
- * Official Clark University Vector Brand Logo
- * Official Color: Clark Red (#cc0000)
- */
 export function ClarkLogo(props: LogoProps) {
   return (
     <svg
@@ -389,10 +357,6 @@ export function ClarkLogo(props: LogoProps) {
   )
 }
 
-/**
- * Official Canisius University Vector Brand Logo
- * Official Colors: Jesuit Navy (#0c2340) & Gold (#cba052)
- */
 export function CanisiusLogo(props: LogoProps) {
   return (
     <svg
@@ -434,11 +398,6 @@ export function CanisiusLogo(props: LogoProps) {
   )
 }
 
-/* ─────────────────────────────────────────────────────────────
-   OFFICIAL UNIVERSITY CREST EMBLEMS (For Rotating Round Seals)
-   ───────────────────────────────────────────────────────────── */
-
-/** Official NYU Violet Torch Crest */
 export function NyuCrest(props: LogoProps) {
   return (
     <svg
@@ -465,7 +424,6 @@ export function NyuCrest(props: LogoProps) {
   )
 }
 
-/** Official Georgetown Blue Shield & Eagle Crest */
 export function GeorgetownCrest(props: LogoProps) {
   return (
     <svg
@@ -484,7 +442,6 @@ export function GeorgetownCrest(props: LogoProps) {
   )
 }
 
-/** Official Williams College Purple & Gold Block W Crest */
 export function WilliamsCrest(props: LogoProps) {
   return (
     <svg
@@ -502,7 +459,6 @@ export function WilliamsCrest(props: LogoProps) {
   )
 }
 
-/** Official Drexel Blue & Gold Dragon Shield Crest */
 export function DrexelCrest(props: LogoProps) {
   return (
     <svg
@@ -518,7 +474,6 @@ export function DrexelCrest(props: LogoProps) {
   )
 }
 
-/** Official Sarah Lawrence Forest Green Laurel Crest */
 export function SarahLawrenceCrest(props: LogoProps) {
   return (
     <svg
@@ -536,7 +491,6 @@ export function SarahLawrenceCrest(props: LogoProps) {
   )
 }
 
-/** Official Hult Global Ribbon Crest */
 export function HultCrest(props: LogoProps) {
   return (
     <svg
@@ -556,7 +510,6 @@ export function HultCrest(props: LogoProps) {
   )
 }
 
-/** Official Howard University Shield Crest */
 export function HowardCrest(props: LogoProps) {
   return (
     <svg
@@ -582,7 +535,6 @@ export function HowardCrest(props: LogoProps) {
   )
 }
 
-/** Official Clark University Crimson Seal Crest */
 export function ClarkCrest(props: LogoProps) {
   return (
     <svg
@@ -599,7 +551,6 @@ export function ClarkCrest(props: LogoProps) {
   )
 }
 
-/** Official Canisius Jesuit Navy & Gold Crest */
 export function CanisiusCrest(props: LogoProps) {
   return (
     <svg

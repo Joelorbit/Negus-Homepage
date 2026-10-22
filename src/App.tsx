@@ -35,10 +35,6 @@ import {
 } from "./universityLogos"
 import { useEffect, useRef, useState, type CSSProperties } from "react"
 
-/* ─────────────────────────────────────────────
-   VERIFIED CONSULTANCY ARCHIVE (20+ Years)
-   ───────────────────────────────────────────── */
-
 type ThemeMode = "light" | "dark"
 type PathKey = "sat" | "ielts" | "scholarship"
 
@@ -544,10 +540,6 @@ function CrownMark() {
   )
 }
 
-/* ─────────────────────────────────────────────────────────────
-   ROTATING UNIVERSITY ROUND SEAL (Figma Architectural Signature)
-   Continuous spinning outer text ribbon + Static Upright Crest
-   ───────────────────────────────────────────────────────────── */
 function RotatingUniversitySeal({
   name,
   shortName,
@@ -572,13 +564,10 @@ function RotatingUniversitySeal({
           />
         </defs>
 
-        {/* Outer Orbit Rim */}
         <circle cx="80" cy="80" r="74" className="seal-rim-outer" />
 
-        {/* Orbit Inner Dashed Track */}
         <circle cx="80" cy="80" r="69" className="seal-rim-dashed" />
 
-        {/* Smoothly Rotating Text Ribbon */}
         <g className="seal-spinning-group">
           <text className="seal-spinning-caption">
             <textPath href={`#${pathId}`} startOffset="0%">
@@ -587,12 +576,10 @@ function RotatingUniversitySeal({
           </text>
         </g>
 
-        {/* Inner Solid Circular Backdrop */}
         <circle cx="80" cy="80" r="44" className="seal-inner-halo" />
         <circle cx="80" cy="80" r="40" className="seal-center-disc" />
       </svg>
 
-      {/* Upright, Sharp Center Crest Icon */}
       <div className="seal-crest-anchor">
         <CrestComponent className="seal-crest-vector" />
       </div>
@@ -622,12 +609,10 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("home")
   const [showScrollTop, setShowScrollTop] = useState(false)
 
-  /* Selected Verified Student Acceptance Letter */
   const [selectedLetter, setSelectedLetter] = useState<AcceptanceLetter | null>(
     null,
   )
 
-  /* Student Destinations Category Filter */
   const [destinationFilter, setDestinationFilter] =
     useState<"all" | "research" | "liberal" | "business">("all")
   const [destinationScrollProgress, setDestinationScrollProgress] = useState(0)
@@ -647,7 +632,6 @@ export default function App() {
     )
   }, [destinationFilter])
 
-  /* 3-Step Interactive Path Builder Modal */
   const [plannerOpen, setPlannerOpen] = useState(false)
   const [plannerStep, setPlannerStep] = useState(0)
   const [studyFormat, setStudyFormat] = useState("Not sure yet")
@@ -721,10 +705,9 @@ export default function App() {
 
   return (
     <main>
-      {/* ── Film Grain Texture Overlay ── */}
+
       <div className="film-grain" aria-hidden="true" />
 
-      {/* ── Sticky Site Header ── */}
       <header className="site-header">
         <div className="site-header-inner">
           <a
@@ -810,7 +793,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* ── Hero Section ── */}
       <section className="hero-stage section-shell" id="home">
         <div className="hero-copy-wrap">
           <div className="eyebrow-tag">WELCOME TO NEGUS CONSULTANCY</div>
@@ -843,7 +825,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── Marquee Ribbon (Infinite Dual-Track Stream) ── */}
       <div className="marquee-ribbon" aria-label="Negus core service tracks">
         <div className="marquee-track">
           <span>ESSAY COACHING</span>
@@ -883,7 +864,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* ── Destinations: Pure Circular Orbit Stations (Circle Space Oriented · 20+ Years Heritage) ── */}
       <section className="destinations-section section-shell" id="destinations">
         <div className="destinations-orbit-header">
           <div className="eyebrow-tag">
@@ -1055,7 +1035,6 @@ export default function App() {
                   <span>{uni.tier}</span>
                 </div>
 
-                {/* 156px Rotating Royal Medallion */}
                 <div
                   className="circle-seal-chamber"
                   onClick={() =>
@@ -1126,7 +1105,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 01 / Path Finder (Figma style) ── */}
       <section className="pathfinder-section section-shell" id="pathfinder">
         <div className="pathfinder-head">
           <div className="eyebrow-tag">01 / PATH FINDER</div>
@@ -1193,7 +1171,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 02 / Training Programs (Figma signature with hover color sweeps) ── */}
       <section className="programs-section" id="programs">
         <div className="section-shell">
           <div className="programs-head-grid">
@@ -1285,7 +1262,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 03 / Course Library Feature Block (Figma) ── */}
       <section className="courses-section section-shell" id="courses">
         <div className="courses-head-grid">
           <div>
@@ -1375,7 +1351,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 04 / Scholarship Packages (Package Studio with ETB) ── */}
       <section className="packages-section section-shell" id="packages">
         <div className="packages-head-row">
           <div>
@@ -1515,7 +1490,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 05 / Community Channels (Figma) ── */}
       <section className="community-section section-shell" id="community">
         <div className="community-intro">
           <div className="eyebrow-tag">05 / COMMUNITY</div>
@@ -1547,7 +1521,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 07 / Latest Blogs (Figma) ── */}
       <section className="blogs-section section-shell" id="blogs">
         <div className="blogs-head-bar">
           <div>
@@ -1609,7 +1582,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 08 / How It Works (Four Confident Moves) ── */}
       <section className="process-section" id="process">
         <div className="section-shell">
           <div className="eyebrow-tag" style={{ color: "var(--yellow)" }}>
@@ -1654,7 +1626,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 09 / FAQ (Figma Accordion) ── */}
       <section className="faq-section section-shell" id="faq">
         <div className="faq-title-col">
           <div className="eyebrow-tag">09 / GOOD TO KNOW</div>
@@ -1695,7 +1666,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── 10 / Contact Panel (Figma) ── */}
       <section className="contact-section section-shell" id="contact">
         <div className="contact-sidebar">
           <div className="eyebrow-tag">10 / GET IN TOUCH</div>
@@ -1799,7 +1769,6 @@ export default function App() {
         </form>
       </section>
 
-      {/* ── Final Royalty Call To Action ── */}
       <section className="final-cta-billboard">
         <div className="cta-crown-circle">
           <CrownMark />
@@ -1839,7 +1808,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── Site Footer ── */}
       <footer className="site-footer">
         <div className="footer-four-columns">
           <div className="footer-brand-blurb">
@@ -1938,7 +1906,6 @@ export default function App() {
         </div>
       </footer>
 
-      {/* ── Lightbox Modal for Dossier Inspection ── */}
       {selectedLetter && (
         <div
           className="dossier-modal-backdrop"
@@ -2042,7 +2009,6 @@ export default function App() {
         </div>
       )}
 
-      {/* ── 3-Step Interactive Path Builder Modal (Figma) ── */}
       {plannerOpen && (
         <div className="planner-backdrop" role="presentation">
           <div
@@ -2306,7 +2272,6 @@ export default function App() {
         </div>
       )}
 
-      {/* ── Scroll to Top Button ── */}
       <button
         type="button"
         className={`scroll-top-btn ${showScrollTop ? "visible" : ""}`}
